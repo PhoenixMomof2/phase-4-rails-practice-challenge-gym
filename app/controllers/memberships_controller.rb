@@ -10,7 +10,7 @@ class MembershipsController < ApplicationController
     if membership.save
       render json: membership 
     else
-      render json: { error: "Client already has a membership" }, status: :unprocessable_entity
+      render json: { errors: membership.errors.full_messages }, status: :unprocessable_entity
     end
   end
   #can use Memberships.new and membership.save instead
